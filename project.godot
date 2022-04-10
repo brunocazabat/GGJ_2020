@@ -1,0 +1,39 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Ressources",
+"language": "GDScript",
+"path": "res://Ressources.gd"
+}, {
+"base": "Node2D",
+"class": "Stock",
+"language": "GDScript",
+"path": "res://stock.gd"
+} ]
+_global_script_class_icons={
+"Ressources": "",
+"Stock": ""
+}
+
+[application]
+
+config/name="GameJame2021"
+run/main_scene="res://Menu/titlescreen/TitleScreen.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://HUD_Interface/Counter/cadre_bouclé.png" type="Texture" id=1]
+[ext_resource path="res://HUD_Interface/Counter/placeholder.png" type="Texture" id=2]
+[ext_resource path="res://HUD_Interface/Theme/default_theme.tres" type="Theme" id=3]
+
+
+
+[node name="counter" type="NinePatchRect"]
+margin_right = 202.0
+margin_bottom = 89.0
+theme = ExtResource( 3 )
+texture = ExtResource( 1 )
+patch_margin_left = 36
+patch_margin_top = 26
+patch_margin_right = 36
+patch_margin_bottom = 26
+axis_stretch_horizontal = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -97.3514
+margin_top = -48.5809
+margin_right = 5.64856
+margin_bottom = 52.4191
+texture = ExtResource( 2 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 10.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_right = -1892.0
+text = "456"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

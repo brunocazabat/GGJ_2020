@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/digging.ogg-f2d2987232c006092cc7f4598fbb1b51.oggstr"
+
+[deps]
+
+source_file="res://sounds/digging.ogg"
+dest_files=[ "res://.import/digging.ogg-f2d2987232c006092cc7f4598fbb1b51.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

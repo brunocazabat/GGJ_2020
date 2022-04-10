@@ -1,0 +1,125 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://sprites/player/power_Q1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/player/power_Q2.png" type="Texture" id=3]
+[ext_resource path="res://sprites/player/char_Q3.png" type="Texture" id=4]
+[ext_resource path="res://sprites/player/char_D3.png" type="Texture" id=5]
+[ext_resource path="res://sprites/player/char_D1.png" type="Texture" id=6]
+[ext_resource path="res://sprites/player/char_Z1.png" type="Texture" id=7]
+[ext_resource path="res://sprites/player/char_S2.png" type="Texture" id=8]
+[ext_resource path="res://sprites/player/power_S1.png" type="Texture" id=9]
+[ext_resource path="res://sprites/player/power_D2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/player/power_Z1.png" type="Texture" id=11]
+[ext_resource path="res://sprites/player/char_Z2.png" type="Texture" id=12]
+[ext_resource path="res://sprites/player/power_S2.png" type="Texture" id=13]
+[ext_resource path="res://sprites/player/char_Q1.png" type="Texture" id=14]
+[ext_resource path="res://sprites/player/char_D2.png" type="Texture" id=15]
+[ext_resource path="res://sprites/player/power_D1.png" type="Texture" id=16]
+[ext_resource path="res://sprites/player/power_Z2.png" type="Texture" id=17]
+[ext_resource path="res://sprites/player/char_Q2.png" type="Texture" id=18]
+[ext_resource path="res://sprites/player/char_S3.png" type="Texture" id=19]
+[ext_resource path="res://sprites/player/char_Z3.png" type="Texture" id=20]
+[ext_resource path="res://sprites/player/char_S1.png" type="Texture" id=21]
+[ext_resource path="res://sounds/walking.ogg" type="AudioStream" id=22]
+[ext_resource path="res://sounds/on-click_sound.wav" type="AudioStream" id=23]
+[ext_resource path="res://HUD_Interface/HUD_interface.tscn" type="PackedScene" id=24]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "powerUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 18 ), ExtResource( 4 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "runLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "runUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 8 ), ExtResource( 19 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "runDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "powerDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "powerRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "powerLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 15 ), ExtResource( 5 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "runRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "idleLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "idleRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "idleUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "idleDown",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.5372, 5.56857 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( -17, -16 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.314978, -3.62754 )
+scale = Vector2( 0.480801, 0.472999 )
+frames = SubResource( 1 )
+animation = "idleRight"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.182556, 3.44308 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.3, 0.3 )
+
+[node name="Control" parent="Camera2D" instance=ExtResource( 24 )]
+margin_left = -153.507
+margin_top = -89.4343
+margin_right = 870.489
+margin_bottom = 510.566
+rect_scale = Vector2( 0.297861, 0.297861 )
+
+[node name="Walking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+[connection signal="coli" from="." to="." method="_on_Player_coli"]
